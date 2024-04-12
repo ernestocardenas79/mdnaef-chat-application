@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNOSChat.Server", "UNOSChat.Server\UNOSChat.Server.csproj", "{FF457B74-9A31-424B-93D7-F5CF20DB67E0}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "unoschat.client", "unoschat.client\unoschat.client.esproj", "{7BFD4072-FD4D-448D-87B8-B5076A509C68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF457B74-9A31-424B-93D7-F5CF20DB67E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF457B74-9A31-424B-93D7-F5CF20DB67E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF457B74-9A31-424B-93D7-F5CF20DB67E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF457B74-9A31-424B-93D7-F5CF20DB67E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BFD4072-FD4D-448D-87B8-B5076A509C68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BFD4072-FD4D-448D-87B8-B5076A509C68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BFD4072-FD4D-448D-87B8-B5076A509C68}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7BFD4072-FD4D-448D-87B8-B5076A509C68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BFD4072-FD4D-448D-87B8-B5076A509C68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BFD4072-FD4D-448D-87B8-B5076A509C68}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA7282D6-E87C-4B00-8336-1318C3ADD13E}
+	EndGlobalSection
+EndGlobal
