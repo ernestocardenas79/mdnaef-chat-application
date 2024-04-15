@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNOSChat.Server", "UNOSChat.Server\UNOSChat.Server.csproj", "{FF457B74-9A31-424B-93D7-F5CF20DB67E0}"
-EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "unoschat.client", "unoschat.client\unoschat.client.esproj", "{7BFD4072-FD4D-448D-87B8-B5076A509C68}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{6186B943-A1D3-4BD2-8554-93CA64DB0620}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNOSChat.AuthenticationAPI", "UNOSChat.AuthenticationAPI\UNOSChat.AuthenticationAPI.csproj", "{F62B0413-E80D-4888-8B79-A15554BDF69D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UNOSChat.ConversationAPI", "UNOSChat.ConversationAPI\UNOSChat.ConversationAPI.csproj", "{CBF6F8A5-7FFB-4B97-A966-ECBD6DB5A12D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNOSChat.UsersManagmentAPI", "UNOSChat.UsersManagmentAPI\UNOSChat.UsersManagmentAPI.csproj", "{AA632498-0B40-4A90-8F01-03030234A3C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,19 +19,32 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FF457B74-9A31-424B-93D7-F5CF20DB67E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF457B74-9A31-424B-93D7-F5CF20DB67E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF457B74-9A31-424B-93D7-F5CF20DB67E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF457B74-9A31-424B-93D7-F5CF20DB67E0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7BFD4072-FD4D-448D-87B8-B5076A509C68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7BFD4072-FD4D-448D-87B8-B5076A509C68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BFD4072-FD4D-448D-87B8-B5076A509C68}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{7BFD4072-FD4D-448D-87B8-B5076A509C68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BFD4072-FD4D-448D-87B8-B5076A509C68}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7BFD4072-FD4D-448D-87B8-B5076A509C68}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F62B0413-E80D-4888-8B79-A15554BDF69D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F62B0413-E80D-4888-8B79-A15554BDF69D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F62B0413-E80D-4888-8B79-A15554BDF69D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F62B0413-E80D-4888-8B79-A15554BDF69D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBF6F8A5-7FFB-4B97-A966-ECBD6DB5A12D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBF6F8A5-7FFB-4B97-A966-ECBD6DB5A12D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBF6F8A5-7FFB-4B97-A966-ECBD6DB5A12D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBF6F8A5-7FFB-4B97-A966-ECBD6DB5A12D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA632498-0B40-4A90-8F01-03030234A3C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA632498-0B40-4A90-8F01-03030234A3C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA632498-0B40-4A90-8F01-03030234A3C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA632498-0B40-4A90-8F01-03030234A3C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F62B0413-E80D-4888-8B79-A15554BDF69D} = {6186B943-A1D3-4BD2-8554-93CA64DB0620}
+		{CBF6F8A5-7FFB-4B97-A966-ECBD6DB5A12D} = {6186B943-A1D3-4BD2-8554-93CA64DB0620}
+		{AA632498-0B40-4A90-8F01-03030234A3C5} = {6186B943-A1D3-4BD2-8554-93CA64DB0620}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FA7282D6-E87C-4B00-8336-1318C3ADD13E}
