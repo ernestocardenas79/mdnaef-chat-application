@@ -1,0 +1,14 @@
+:host{
+    margin: 3px 5px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 0 15px;
+    background-color: rgba(221, 210, 210, 0.479);
+}
+
+app-avatar{
+    margin-right: 15px;
+}
+

@@ -1,0 +1,24 @@
+<div class="login">
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="login__form">
+        <h1 class="login__title">Login</h1>
+
+        <div class="login__inputs">
+        <div class="login__box">
+            <input formControlName="user" placeholder="User" required class="login__input">
+            <i class="ri-mail-fill"></i>
+        </div>
+
+        <div class="login__box">
+            <input formControlName="password" type="password" placeholder="Password" required class="login__input">
+            <i class="ri-lock-2-fill"></i>
+        </div>
+        </div>
+
+
+        <button type="submit" class="login__button">Login</button>
+
+        <div class="login__register">
+        Don't have an account? <a href="#">Register</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,44 @@
+<div class="login">
+  <form [formGroup]="registerForm" (ngSubmit)="register()"  class="login__form">
+    <h1 class="login__title">Register</h1>
+
+    <div class="login__inputs">
+      <div class="login__box">
+        <input
+          formControlName="user"
+          placeholder="User"
+        
+          class="login__input"
+        />
+      </div>
+
+      <div class="login__box">
+        <input
+        formControlName="password"
+          type="password"
+          placeholder="Password"
+        
+          class="login__input"
+        />
+      </div>
+
+      <div class="login__box">
+        <input
+        formControlName="confirm"
+          type="password"
+          placeholder="Confirm Password"
+        
+          class="login__input"
+        />
+      </div>
+    </div>
+    <button type="submit" class="login__button" [disabled]="invalidForm" >Register</button>
+
+    <div class="login__register">
+      Do you already have an account? <a href="#">Login</a>
+    </div>
+  </form>
+  <code>
+    {{ salida | json}}
+  </code>
+</div>

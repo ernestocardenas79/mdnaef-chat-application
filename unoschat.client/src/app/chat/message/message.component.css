@@ -1,0 +1,19 @@
+:host{
+    display: block;
+}
+
+article {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    background-color: rgba(243, 243, 232, 0.918);
+    border-radius: 2px;
+    padding: 20px 15px;
+    gap: 13px;
+}
+
+app-avatar{
+    align-self: flex-start;
+}
+
+

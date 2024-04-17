@@ -1,0 +1,21 @@
+:host{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 5px 8px;
+    margin: 0 5px 15px 5px;
+    gap: 5px;
+}
+
+aside{
+    flex-grow: 3;
+    background-color: rgba(218, 203, 203, 0.658);
+    overflow-y: auto;
+    min-width: 300px;
+}
+
+app-conversation{
+    flex-grow: 7;
+    background-color: rgba(87, 59, 59, 0.548);
+    overflow-y: auto;
+}
