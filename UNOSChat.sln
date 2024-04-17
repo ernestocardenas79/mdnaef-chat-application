@@ -6,12 +6,15 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "unoschat.client", "unoschat.client\unoschat.client.esproj", "{7BFD4072-FD4D-448D-87B8-B5076A509C68}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{6186B943-A1D3-4BD2-8554-93CA64DB0620}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNOSChat.AuthenticationAPI", "UNOSChat.AuthenticationAPI\UNOSChat.AuthenticationAPI.csproj", "{F62B0413-E80D-4888-8B79-A15554BDF69D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UNOSChat.AuthenticationAPI", "UNOSChat.AuthenticationAPI\UNOSChat.AuthenticationAPI.csproj", "{F62B0413-E80D-4888-8B79-A15554BDF69D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UNOSChat.ConversationAPI", "UNOSChat.ConversationAPI\UNOSChat.ConversationAPI.csproj", "{CBF6F8A5-7FFB-4B97-A966-ECBD6DB5A12D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNOSChat.UsersManagmentAPI", "UNOSChat.UsersManagmentAPI\UNOSChat.UsersManagmentAPI.csproj", "{AA632498-0B40-4A90-8F01-03030234A3C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UNOSChat.UsersManagmentAPI", "UNOSChat.UsersManagmentAPI\UNOSChat.UsersManagmentAPI.csproj", "{AA632498-0B40-4A90-8F01-03030234A3C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
