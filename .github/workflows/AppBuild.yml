@@ -1,0 +1,66 @@
+name: Chat Client Angular App
+
+on: 
+  push:
+    paths:
+      - 'unoschat.client/**'
+
+jobs:
+  check-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      web_changed: ${{ steps.check.outputs.web_changed }}
+      dotnet_changed: ${{ steps.check.outputs.dotnet_changed }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Check for changes
+        id: check
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const changedFiles = pr ? await github.paginate(
+              github.pulls.listFiles, 
+              { owner: context.repo.owner, repo: context.repo.repo, pull_number: pr.number }
+            ): context.payload.commits.flatMap(commit => commit.modified);
+            const webChanged = changedFiles.some(file => file.filename.startsWith('unoschat.client/'));
+            return { web_changed: webChanged, dotnet_changed: false };
+  web-app-dep:
+    needs: check-changes
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Getting Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18.x'
+        cache: 'npm'
+    - name: Installing dependencies
+      run: npm ci
+      working-directory: ./unoschat.client
+    - name: uploading node_modules
+      uses: actions/upload-artifact@v4.3.3
+      with:
+        name: node_modules
+        path: ./unoschat.client/node_modules/
+
+  build-web-app:
+    needs: web-app-dep
+    runs-on: ubuntu-latest
+    
+    steps:
+     - uses: actions/checkout@v4
+     - uses: actions/setup-node@v3
+       with:
+         node-version: '18.x'
+     - name: Download a Build Artifact
+       uses: actions/download-artifact@v4.1.7
+       with:
+         # Name of the artifact to download. If unspecified, all artifacts for the run are downloaded.
+         name: node_modules
+         # Destination path. Supports basic tilde expansion. Defaults to $GITHUB_WORKSPACE
+         path: ./unoschat.client/node_modules
+     - run: npm test -- --no-watch --no-progress --browser=ChromeHeadlessCI
+       working-directory: ./unoschat.client
