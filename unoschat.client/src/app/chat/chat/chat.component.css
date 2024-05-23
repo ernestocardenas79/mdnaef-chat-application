@@ -4,18 +4,62 @@
     width: 100%;
     padding: 5px 8px;
     margin: 0 5px 15px 5px;
+    flex-direction: column;
+}
+
+app-header {
+    max-height: 80px;
+    margin: 15px 0;
+    height: 10vh;
+}
+
+app-footer {
+    max-height: 50px;
+    margin-bottom: 10px;
+    height: 8%;
+}
+
+section{
+    display: flex;
     gap: 5px;
+    height: 100%;
 }
 
 aside{
     flex-grow: 3;
-    background-color: rgba(218, 203, 203, 0.658);
+    background-color: rgba(218, 203, 203, 0.301);
     overflow-y: auto;
     min-width: 300px;
+    max-width: 350px;
 }
 
 app-conversation{
     flex-grow: 7;
-    background-color: rgba(87, 59, 59, 0.548);
     overflow-y: auto;
+}
+
+span{
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    display: block;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding-top: 13px;
+    background-color: rgb(55, 58, 240);
+    color: white;
+    opacity: .3;
+    transition: opacity .8s ease;
+}
+
+span:hover{
+    opacity: 1;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+app-search-bar{
+    display: block;
+    width:60%;
+    margin: 0 auto 8px auto;
 }

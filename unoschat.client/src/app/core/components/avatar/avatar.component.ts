@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-avatar',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './avatar.component.css'
 })
 export class AvatarComponent {
-
+  
+  @Input() imageUrl:string | undefined;
 }

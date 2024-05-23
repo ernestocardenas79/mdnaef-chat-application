@@ -1,9 +1,6 @@
 <article>
-    <app-avatar></app-avatar>
-    <p>
-        Tremendus message Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt et esse a dolor fuga perspiciatis tempore quam, deserunt dicta voluptates, vel, quod velit accusantium ducimus repellendus expedita commodi ad. Odit.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit optio cupiditate earum est! Iusto obcaecati animi doloremque eos tempora ullam perspiciatis quia atque blanditiis. Quis repudiandae beatae et assumenda ipsam.
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore dicta amet voluptatum doloribus sit laudantium, tempora cupiditate vitae. Quia dignissimos earum soluta, est amet perspiciatis esse veniam modi dolorem facilis!
-   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque repellat quia ea id eum corporis sit at dignissimos necessitatibus quisquam. Doloribus distinctio, impedit eos temporibus dolorum recusandae dolore quo sequi.
-    </p>
+  <app-avatar [imageUrl]="message | avatar"></app-avatar>
+  <p>
+    {{ message.message }}
+  </p>
 </article>

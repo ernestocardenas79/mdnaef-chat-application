@@ -1,6 +1,6 @@
 <article>
-    <app-avatar></app-avatar>
+    <app-avatar [imageUrl]="conversationsPh.members[0].avatar"></app-avatar>
     <span>
-        Ernesto Cardenas
+        {{conversationsPh.members[0].name}} - {{conversationsPh.id}}
     </span>
 </article>

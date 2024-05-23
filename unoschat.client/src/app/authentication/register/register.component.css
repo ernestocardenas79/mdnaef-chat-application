@@ -167,3 +167,10 @@ img {
       margin-bottom: 2rem;
     }
   }
+
+  span{
+    display: block;
+    background-color: rgba(199, 34, 34, 0.884);
+    padding: 5px;
+    border-radius: 5px;
+  }

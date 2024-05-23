@@ -1,9 +1,13 @@
 <section>
-    <app-message></app-message>
-    <app-message></app-message>
-    <app-message></app-message>
+  {{ user | json }} {{ messageResponse | json }}
+  @for (message of messages$ | async; track $index) {
+  <app-message [message]="message"></app-message>
+  }
+  <ng-template #messagesref></ng-template>
 </section>
 <section class="create-message">
-    <input type="text" name="" id="">
-    <button><i class="fa-regular fa-paper-plane"></i></button>
+  <input #text type="text" />
+  <button (click)="sendMessage(text.value)">
+    <i class="fa-regular fa-paper-plane"></i>
+  </button>
 </section>

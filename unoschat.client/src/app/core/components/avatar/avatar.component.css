@@ -4,4 +4,9 @@ img {
     border-radius:50%;
     width: 40px;
     height: 40px;
+    border-style: solid;
+    border-width: thin;
+    border-color: blue;
+    padding: 1px;
+    background-color: white;
   }

@@ -1,2 +1,7 @@
+@if (autheticatedUser$ | async; as authUser) {
+<span>Welcomte {{ authUser.name }}</span>
+<app-avatar [imageUrl]="authUser.avatar"></app-avatar>
+} @else {
 <app-avatar></app-avatar>
-<i class="fa-solid fa-arrow-right-from-bracket"></i>
+}
+<i class="fa-solid fa-arrow-right-from-bracket" (click)="logout()"></i>

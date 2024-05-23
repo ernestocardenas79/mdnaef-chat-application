@@ -1,10 +1,12 @@
 <div class="login">
     <form [formGroup]="loginForm" (ngSubmit)="login()" class="login__form">
+        <span *ngIf="loginFailed">Invalid Credentials</span>
+  
         <h1 class="login__title">Login</h1>
 
         <div class="login__inputs">
         <div class="login__box">
-            <input formControlName="user" placeholder="User" required class="login__input">
+            <input formControlName="userName" placeholder="User Name" required class="login__input">
             <i class="ri-mail-fill"></i>
         </div>
 
@@ -14,11 +16,10 @@
         </div>
         </div>
 
-
         <button type="submit" class="login__button">Login</button>
 
         <div class="login__register">
-        Don't have an account? <a href="#">Register</a>
+        Don't have an account? <a [routerLink]="['/register']">Register</a>
         </div>
     </form>
 </div>

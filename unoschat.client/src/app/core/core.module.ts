@@ -6,8 +6,10 @@ import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AvatarComponent } from './components/avatar/avatar.component';
-
-
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { UserDirective } from './components/user/user.directive';
 
 @NgModule({
   declarations: [
@@ -15,18 +17,20 @@ import { AvatarComponent } from './components/avatar/avatar.component';
     FooterComponent,
     LoginComponent,
     UserComponent,
-    AvatarComponent
+    AvatarComponent,
+    SearchBarComponent,
+    UserDirective,
   ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule
-  ],
-  exports:[
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule, RouterModule],
+  exports: [
     HeaderComponent,
     FooterComponent,
     LoginComponent,
     UserComponent,
-    AvatarComponent
-  ]
+    AvatarComponent,
+    SearchBarComponent,
+    // UserComponent,
+    UserDirective,
+  ],
 })
-export class CoreModule { }
+export class CoreModule {}

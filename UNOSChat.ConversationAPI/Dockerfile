@@ -3,31 +3,25 @@
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 USER app
 WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
+EXPOSE 3005
+EXPOSE 3006
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS with-node
-RUN apt-get update
-RUN apt-get install curl
-RUN curl -sL https://deb.nodesource.com/setup_20.x | bash
-RUN apt-get -y install nodejs
-RUN npm install -g @angular/cli
-
-FROM with-node AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["UNOSChat.Server/UNOSChat.Server.csproj", "UNOSChat.Server/"]
-COPY ["unoschat.client/unoschat.client.esproj", "unoschat.client/"]
-RUN dotnet restore "./UNOSChat.Server/UNOSChat.Server.csproj"
+#COPY ["unoschat.client/nuget.config", "unoschat.client/"]
+COPY ["UNOSChat.ConversationAPI/UNOSChat.ConversationAPI.csproj", "UNOSChat.ConversationAPI/"]
+#COPY ["unoschat.client/unoschat.client.esproj", "unoschat.client/"]
+RUN dotnet restore "./UNOSChat.ConversationAPI/UNOSChat.ConversationAPI.csproj"
 COPY . .
-WORKDIR "/src/UNOSChat.Server"
-RUN dotnet build "./UNOSChat.Server.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/UNOSChat.ConversationAPI"
+RUN dotnet build "./UNOSChat.ConversationAPI.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./UNOSChat.Server.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./UNOSChat.ConversationAPI.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "UNOSChat.Server.dll"]
+ENTRYPOINT ["dotnet", "UNOSChat.ConversationAPI.dll"]

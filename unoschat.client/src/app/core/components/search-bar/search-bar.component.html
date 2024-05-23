@@ -1,0 +1,17 @@
+<div class="search-wrapper">
+  <section class="search">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input #searchInput type="text" (focus)="focus()" />
+  </section>
+  <div #results class="results">
+    @if(results$ | async; as results){
+    <ul>
+      @for (user of results; track user.id) {
+      <li app-user [user]="user" (userSelected)="selectUser($event)">
+        {{ user.name }}
+      </li>
+      }
+    </ul>
+    }
+  </div>
+</div>

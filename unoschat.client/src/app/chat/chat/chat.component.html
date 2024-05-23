@@ -1,5 +1,17 @@
-<aside>
-    <app-conversation-place-holder></app-conversation-place-holder>
-    <app-conversation-place-holder></app-conversation-place-holder>
-</aside>
-<app-conversation></app-conversation>
+<app-header></app-header>
+<app-search-bar (selectedUser)="newConversation($event)"></app-search-bar>
+<section>
+  <aside>
+    @for (conversation of conversationsPlaceHolder$ | async; track
+    conversation.id) {
+    <app-conversation-place-holder
+      [conversationsPh]="conversation"
+      (click)="loadMessages(conversation)"
+    ></app-conversation-place-holder>
+    }
+    <ng-template #phHolder></ng-template>
+  </aside>
+  <app-conversation #conversation></app-conversation>
+</section>
+
+<app-footer></app-footer>

@@ -4,7 +4,7 @@
 }
 
 i{
-    font-size: xx-large;
+    font-size: x-large;
 }
 
 section{
@@ -16,20 +16,28 @@ section{
     display: flex;
     gap: 3px;
     padding: 5px;
-    max-height: 70px;
+    max-height: 50px;
 }
 
 input{
     flex-grow: 9;
     border-radius: 5px;
     padding: 0 10px;
-    border-color: blue;
     box-shadow: rgba(13, 9, 233, 0.15) 1.95px 1.95px 2.6px;
+    border-style: solid;
+    border-width: thin;
+    border-color: blue;
+}
+
+input:focus{
+    outline: none;
 }
 
 button{
     flex-grow:1;
     border-radius: 5px;
+    border-style: solid;
+    border-width: thin;
     border-color: blue;
     box-shadow: rgba(13, 9, 233, 0.25) 0px 54px 55px, rgba(13, 9, 233, 0.12) 0px -12px 30px, rgba(13, 9, 233, 0.12) 0px 4px 6px, rgba(13, 9, 233, 0.17) 0px 12px 13px, rgba(13, 9, 233, 0.09) 0px -3px 5px;
 }

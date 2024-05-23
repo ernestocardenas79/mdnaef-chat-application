@@ -1,0 +1,57 @@
+version: '3.4'
+
+services:
+  authdb:
+    restart: always
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=3lpat9t0f30!
+    ports:
+      - "1433:1433"
+  chatdb:
+    restart: always
+    environment:
+      - MONGODB_INITDB_ROOT_USERNAME=mongoadmin
+      - MONGODB_INITDB_ROOT_PASSWORD=LikeAnd
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27017:27017"
+  unoschat.conversationapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=3005
+      - ASPNETCORE_HTTPS_PORTS=3006
+      # - ASPNETCORE_Kestrel__Endpoints__Http__Url=http://0.0.0.0:3005
+      # - ASPNETCORE_Kestrel__Endpoints__Https__Url=http://0.0.0.0:3006
+    ports:
+      - "3005:3005"
+      - "3006:3006"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    depends_on:
+      - chatdb
+  unoschat.authenticationapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8082
+      - ASPNETCORE_HTTPS_PORTS=8083
+    ports:
+      - "3010:8082"
+      - "3011:8083"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    depends_on:
+      - authdb
+  unoschat.client:
+    ports:
+      - "3020:80"
+  ocelotgateway:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+    ports:
+      - "3015:8080"
+

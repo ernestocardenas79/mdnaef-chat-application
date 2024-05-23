@@ -1,0 +1,136 @@
+{
+  "Routes": [
+    // Authentication
+    {
+      "UpstreamPathTemplate": "/api/account/registration",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "unoschat.authenticationapi",
+          "Port": 8082
+        }
+      ],
+      "DownstreamPathTemplate": "/api/account/registration"
+    },
+    {
+      "UpstreamPathTemplate": "/api/account/login",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "unoschat.authenticationapi",
+          "Port": 8082
+        }
+      ],
+      "DownstreamPathTemplate": "/api/account/login"
+    },
+    // Conversation
+    {
+      "UpstreamPathTemplate": "/api/conversation",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "unoschat.conversationapi",
+          "Port": 3005
+        }
+      ],
+      "DownstreamPathTemplate": "/api/conversation"
+    },
+    {
+      "UpstreamPathTemplate": "/api/conversation/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "unoschat.conversationapi",
+          "Port": 3005
+        }
+      ],
+      "DownstreamPathTemplate": "/api/conversation/{id}"
+    },
+    {
+      "UpstreamPathTemplate": "/api/conversation/ph",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "unoschat.conversationapi",
+          "Port": 3005
+        }
+      ],
+      "DownstreamPathTemplate": "/api/conversation/ph"
+    },
+    {
+      "UpstreamPathTemplate": "/api/conversation/message",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "unoschat.conversationapi",
+          "Port": 3005
+        }
+      ],
+      "DownstreamPathTemplate": "/api/conversation/message"
+    },
+    {
+      "UpstreamPathTemplate": "/api/conversation/create",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "unoschat.conversationapi",
+          "Port": 3005
+        }
+      ],
+      "DownstreamPathTemplate": "/api/conversation/create"
+    },
+    /// Users
+    {
+      "UpstreamPathTemplate": "/api/user",
+      "UpstreamHttpMethod": [ "Post", "Put" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "unoschat.conversationapi",
+          "Port": 3005
+        }
+      ],
+      "DownstreamPathTemplate": "/api/user"
+    },
+    {
+      "UpstreamPathTemplate": "/api/user/{email}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "unoschat.conversationapi",
+          "Port": 3005
+        }
+      ],
+      "DownstreamPathTemplate": "/api/user/{email}"
+    },
+    {
+      "UpstreamPathTemplate": "/chathub",
+      "UpstreamHttpMethod": [],
+      "DownstreamScheme": "ws",
+      "UseDownstreamPathTemplate": true,
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "unoschat.conversationapi",
+          "Port": 3005
+        }
+      ],
+      "DownstreamPathTemplate": "/chathub",
+      "DownstreamHttpMethod": [],
+      "AddHeadersToRequest": {
+        "Upgrade": "websocket",
+        "Connection": "Upgrade"
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl":  "http://localhost:3015"
+  }
+}

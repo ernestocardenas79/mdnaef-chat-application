@@ -1,44 +1,45 @@
 <div class="login">
-  <form [formGroup]="registerForm" (ngSubmit)="register()"  class="login__form">
+  <form [formGroup]="registerForm" (ngSubmit)="register()" class="login__form">
+    <span *ngIf="registartionFailed"
+      >An Error has Ocurred with the registration</span
+    >
     <h1 class="login__title">Register</h1>
 
     <div class="login__inputs">
       <div class="login__box">
+        <input formControlName="name" placeholder="Name" class="login__input" />
+      </div>
+      <div class="login__box">
         <input
-          formControlName="user"
-          placeholder="User"
-        
+          formControlName="email"
+          placeholder="Email"
           class="login__input"
         />
       </div>
-
       <div class="login__box">
         <input
-        formControlName="password"
+          formControlName="password"
           type="password"
           placeholder="Password"
-        
           class="login__input"
         />
       </div>
 
       <div class="login__box">
         <input
-        formControlName="confirm"
+          formControlName="confirmPassword"
           type="password"
           placeholder="Confirm Password"
-        
           class="login__input"
         />
       </div>
     </div>
-    <button type="submit" class="login__button" [disabled]="invalidForm" >Register</button>
+    <button type="submit" class="login__button" [disabled]="invalidForm">
+      Register
+    </button>
 
     <div class="login__register">
-      Do you already have an account? <a href="#">Login</a>
+      Do you already have an account? <a [routerLink]="['/login']">Login</a>
     </div>
   </form>
-  <code>
-    {{ salida | json}}
-  </code>
 </div>

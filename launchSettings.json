@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "unoschat.conversationapi": "StartDebugging",
+        "unoschat.usersmanagmentapi": "StartDebugging",
+        "unoschat.authenticationapi": "StartDebugging",
+        "ocelotgateway": "StartDebugging"
+      }
+    }
+  }
+}

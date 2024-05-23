@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, mapToCanActivate } from '@angular/router';
 import { ChatComponent } from './chat/chat.component';
+import { AuthGuard } from '../core/guards/AuthGuard';
 
 const routes: Routes = [
-  {path:'',
-   component: ChatComponent,}
+  {
+   path:'',
+   canActivate: mapToCanActivate([AuthGuard]),
+   component: ChatComponent,
+  }
  ];
 
 @NgModule({

@@ -1,36 +1,57 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../core/services/authentication.service';
-
-export interface IUser{
-  user: string;
-  password: string;
-  confirm: string;
-}
+import { Router } from '@angular/router';
+import { IAuthUser, IUser } from '../../core/interfaces';
+import { mergeMap, tap } from 'rxjs';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrl: './register.component.css',
 })
 export class RegisterComponent {
-
-  salida={};
-  constructor(private fb: FormBuilder, private authenticationService:AuthenticationService) {}
+  registartionFailed = false;
+  salida = {};
+  constructor(
+    private fb: FormBuilder,
+    public auth: AuthenticationService,
+    private router: Router
+  ) {}
 
   registerForm = this.fb.group({
-    user: this.fb.control<string>('', Validators.required),
+    name: this.fb.control<string>('', Validators.required),
+    email: this.fb.control<string>('', Validators.required),
     password: this.fb.control<string>('', Validators.required),
-    confirm: this.fb.control<string>('', Validators.required),
-  })
+    confirmPassword: this.fb.control<string>('', Validators.required),
+  });
 
-  register(){
-    let {value, status} = this.registerForm;
-    this.salida= {...value, status};
-    this.authenticationService.registerUser((value as IUser));
+  register() {
+    let { value, status } = this.registerForm;
+    this.salida = { ...value, status };
+    this.auth
+      .registerUser(value as IAuthUser)
+      .pipe(
+        tap((res) => {
+          localStorage.setItem('token', res.token);
+          console.log('res', res);
+        }),
+        mergeMap(({ email }) => this.auth.userInformation(email))
+      )
+      .subscribe({
+        next: (res) => {
+          console.log('Nregister', res);
+          this.registartionFailed = false;
+          this.auth.setAuthChange(res);
+          this.router.navigate(['/']);
+        },
+        error: () => {
+          this.registartionFailed = true;
+        },
+      });
   }
 
-  get invalidForm(){
-    return this.registerForm.status ==='INVALID'?true:false;
+  get invalidForm() {
+    return this.registerForm.status === 'INVALID' ? true : false;
   }
 }

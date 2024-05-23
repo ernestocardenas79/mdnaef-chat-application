@@ -6,6 +6,8 @@ import { ConversationPlaceHolderComponent } from './conversation-place-holder/co
 import { MessageComponent } from './message/message.component';
 import { ConversationComponent } from './conversation/conversation.component';
 import { CoreModule } from "../core/core.module";
+import { HttpClientModule } from '@angular/common/http';
+import { AvatarPipe } from './pipes/avatar.pipe';
 
 
 
@@ -14,10 +16,12 @@ import { CoreModule } from "../core/core.module";
         ChatComponent,
         ConversationPlaceHolderComponent,
         MessageComponent,
-        ConversationComponent
+        ConversationComponent,
+        AvatarPipe
     ],
     imports: [
         CommonModule,
+        HttpClientModule,
         ChatRoutingModule,
         CoreModule
     ]

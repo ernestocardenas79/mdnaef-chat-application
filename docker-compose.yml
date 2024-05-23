@@ -1,14 +1,29 @@
-version: '3.8'
+version: '3.4'
+
 services:
-  mongo:
-    image: mongo:7.0
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: mongoadmin
-      MONGO_INITDB_ROOT_PASSWORD: LikeAnd
-    ports:
-      - 27017:27017
-    volumes:
-      - mongodata:/data/db
+  authdb:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+  chatdb:
+    image: mongodb/mongodb-community-server:6.0-ubuntu2204
+  unoschat.conversationapi:
+    image: ${DOCKER_REGISTRY-}unoschatconversationapi
+    build:
+      context: .
+      dockerfile: UNOSChat.ConversationAPI/Dockerfile
+  unoschat.authenticationapi:
+    image: ${DOCKER_REGISTRY-}unoschatauthenticationapi
+    build:
+      context: .
+      dockerfile: UNOSChat.AuthenticationAPI/Dockerfile
+  unoschat.client:
+    image: ${DOCKER_REGISTRY-}unoschatclient
+    build:
+      context: .
+      dockerfile: unoschat.client/Dockerfile
+  ocelotgateway:
+    image: ${DOCKER_REGISTRY-}ocelotgateway
+    build:
+      context: .
+      dockerfile: OcelotGateway/Dockerfile
 volumes:
-  mongodata:
-     driver: local
+  mongo_data:

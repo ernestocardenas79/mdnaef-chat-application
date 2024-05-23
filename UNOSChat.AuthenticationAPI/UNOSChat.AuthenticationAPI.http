@@ -1,0 +1,6 @@
+@UNOSChat.AuthenticationAPI_HostAddress = http://localhost:5243
+
+GET {{UNOSChat.AuthenticationAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
